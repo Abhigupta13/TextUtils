@@ -50,6 +50,17 @@ props.showAlert("Capitalize first letter!","success")
   const [text,setText] =useState('');
   // text="new text" // wrong way
 //  setText("new text"); // correct way
+
+const countWord = (str = '') => {
+  let count =0;
+
+  for(let i = 0;i < str.length; i++){  
+    if(count ===0) count=1;
+    else if(str[i] === ' ' && str[i+1]!==' ' && str[i+1]!==null)
+             { count++;} 
+  }
+     return count;
+};
   return (
     <>
     <div className="container " style={{color: props.mode === 'dark'? 'white': 'black'}}>
@@ -96,7 +107,7 @@ props.showAlert("Capitalize first letter!","success")
     </div>
     <div className="container my-3" style={{color: props.mode === 'dark'? 'white': 'black'}}>
       <h1>Your Text Summary</h1>
-      <p>{text.split(' ').length} words , {text.length} characters</p>
+      <p>{countWord(text)} words , {text.length} characters</p>
       <p>{0.008*text.split(' ').length} Minutes to read</p>
       <h2>Preview</h2>
       <p>{text.length>0?text:"Enter something in the textbox above to preview it here"}</p>
