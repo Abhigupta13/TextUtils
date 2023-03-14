@@ -9,16 +9,19 @@ const handleUpClick=()=>{
   // console.log("Uppercase is clicked" +text);
 let newText = text.toUpperCase();
 setText(newText);
+props.showAlert("Converted to UpperCase!","success")
 }
 const handleLowClick=()=>{
  
 let newText = text.toLowerCase();
 setText(newText);
+props.showAlert("Converted to LowerCase!","success")
 }
 const handleClearClick=()=>{
  
 let newText = '';
 setText(newText);
+props.showAlert("Text cleared!","success")
 }
 
 const handleCopy =()=>{
@@ -26,12 +29,14 @@ const handleCopy =()=>{
 let copyText =document.getElementById("myBox");
 copyText.select();
 navigator.clipboard.writeText(copyText.value);
+props.showAlert("Text copied to clipboard!","success")
 }
 
 const handleExtraSpaces =()=>{
   // console.log("Extra spaces is clicked");
   let newText = text.split(/[ ]+/);
   setText(newText.join(" "))
+  props.showAlert("Removed extra spaces","success")
 }
 
 
@@ -40,6 +45,7 @@ const handleCapClick=()=>{
 let lower = text.toLowerCase();
 let newText =text.charAt(0).toUpperCase() +lower.slice(1);
 setText(newText);
+props.showAlert("Capitalize first letter!","success")
 }
   const [text,setText] =useState('');
   // text="new text" // wrong way
