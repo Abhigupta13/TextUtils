@@ -1,16 +1,16 @@
 // import logo from './logo.svg';
 import { useState } from "react";
 import "./App.css";
-// import About from "./Components/About";
+import About from "./Components/About";
 import Navbar from "./Components/Navbar";
 import Alert from "./Components/Alert";
 import TextForm from "./Components/TextForm";
 import React from "react";
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -42,20 +42,20 @@ setTimeout(() => {
 
   return (
     <>
-    {/* <Router> */}
+    <Router>
       <Navbar title="TextUtils" mode ={mode} toggleMode={toggleMode} />
       <Alert alert={alert}/>
       <div className="container my-3 ">
         
-        {/* <Routes> */}
-          {/* <Route exact path="/about" element={<About />}/> */}
-          {/* <Route exact path="/home" element={ */}
-          <TextForm showAlert={showAlert} heading="Enter the Text to analyze below" mode ={mode}/>
-          {/* }/> */}
+        <Routes>
+          <Route exact path="/about" element={<About mode={mode} />}/>
+          <Route exact path="/TextUtils" element={<TextForm showAlert={showAlert} heading="Try TextUtils - word counter, character counter, remove extra spaces" mode ={mode}/>}/>
+          <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils - word counter, character counter, remove extra spaces" mode ={mode}/>}/>
+          <Route exact path="/home" element={<TextForm showAlert={showAlert} heading="Try TextUtils - word counter, character counter, remove extra spaces" mode ={mode}/>}/>
        
-        {/* </Routes> */}
+        </Routes>
       </div>
-      {/* </Router> */}
+      </Router>
       
     </>
   );

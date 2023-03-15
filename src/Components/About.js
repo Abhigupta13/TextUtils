@@ -1,20 +1,25 @@
-import React,{useState} from 'react'
+import React from 'react'
+// import {useState} from 'react'
 
-export default function About() {
-    const[myStyle,setStyle] =useState({
-        color: 'black',
-        backgroundColor: 'white'
-    })
-    const[btnText,setBtnText] =useState("Enable Dark Mode")
-    const toggleStyle=()=>{
-         if(myStyle.color ==='white'){
-            setStyle({color:'black',backgroundColor:'white'})
-            setBtnText("Enable Dark Mode")
-         }
-         else{
-            setStyle({color:'white',backgroundColor:'black',border: '1px solid white'})
-            setBtnText("Enable Light Mode");
-         }
+export default function About(props) {
+    // const[myStyle,setStyle] =useState({
+    //     color: 'black',
+    //     backgroundColor: 'white'
+    // })
+    // const[btnText,setBtnText] =useState("Enable Dark Mode")
+    // const toggleStyle=()=>{
+    //      if(myStyle.color ==='white'){
+    //         setStyle({color:'black',backgroundColor:'white'})
+    //         setBtnText("Enable Dark Mode")
+    //      }
+    //      else{
+    //         setStyle({color:'white',backgroundColor:'black',border: '1px solid white'})
+    //         setBtnText("Enable Light Mode");
+    //      }
+    // }
+    let myStyle={
+      backgroundColor: props.mode === 'dark'? '#02345f': 'white',
+      color: props.mode === 'dark'? 'white': 'black'
     }
   return (
     
@@ -47,7 +52,7 @@ export default function About() {
   </div>
   <div className="accordion-item" style={myStyle}>
     <h2 className="accordion-header" id="headingThree">
-      <button className="accordion-button collapsed"  style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
         Accordion Item #3
       </button>
     </h2>
@@ -58,8 +63,8 @@ export default function About() {
     </div>
   </div>
 </div>
-<div className="my-3"><button onClick={toggleStyle} type="button" className="btn btn-primary">{btnText}</button>
-</div>
+{/* <div className="my-3"><button onClick={toggleStyle} type="button" className="btn btn-primary">{btnText}</button>
+</div> */}
    </div>
   )
 }
